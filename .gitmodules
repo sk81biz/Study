@@ -1,0 +1,3 @@
+[submodule "Python"]
+	path = StudyPython
+	url = https://github.com/sk81biz/StudyPython
