@@ -34,12 +34,12 @@ jobs:
           echo ${PRODUCT_VERSION}
           if [ "${GITHUB_REF_NAME}" = "develop" ]; then 
              echo "Branch is ${GITHUB_REF_NAME}"
-             export DIRECTORY="io"
+             echo DIRECTORY="io" >> $GITHUB_ENV
           fi
           if [[ "${GITHUB_REF_NAME} =~ ${BRANCH_REGEX}" ]]; then
              echo "GITHUB_REF_NAME = ${GITHUB_REF_NAME}"
-             export DIRECTORY="com"
+             echo DIRECTORY="com" >> $GITHUB_ENV
           fi
-      - name: Echo DERECTORY
+      - name: Echo DIRECTORY
         run: |
-          echo "DERECTORY IS ${DIRECTORY}"
+          echo "DIRECTORY IS ${DIRECTORY}"
