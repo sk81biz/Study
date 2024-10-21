@@ -4,6 +4,8 @@ on:
     branches:
       - 'master'
       - 'develop'
+      - 'hotfix/v*'
+      - 'release/v*' 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,11 +27,16 @@ jobs:
       
       - name: Check branch
         run: |
+          BRANCH_REGEX="^hotfix\/v.*|^release\/v.*"
           echo ${{ github.ref }}
           echo "${GITHUB_REF_NAME}"
-          PRODUCT_VERSION=$(echo "${{ matrix.branch }}" | sed '/^release\b\|^hotfix\b\|^feature\b/s/release.*\/\|hotfix.*\/\|feature.*\///; s/-git-action$//; s/^v//')
           echo ${PRODUCT_VERSION}
           if [ "${GITHUB_REF_NAME}" = "develop" ]; then 
              echo "Branch is ${GITHUB_REF_NAME}"
+             DERECTORY="io"
           fi
-          
+          if [[ "${GITHUB_REF_NAME} =~ ${BRANCH_REGEX}" ]]; then
+             echo "GITHUB_REF_NAME = ${GITHUB_REF_NAME}"
+             DERECTORY="com"
+          fi
+          echo "DERECTORY IS ${DERECTORY}"
