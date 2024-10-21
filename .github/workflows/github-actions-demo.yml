@@ -26,6 +26,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       
       - name: Check branch
+        id: get_directory
         run: |
           BRANCH_REGEX="^hotfix\/v.*|^release\/v.*"
           echo ${{ github.ref }}
@@ -33,12 +34,12 @@ jobs:
           echo ${PRODUCT_VERSION}
           if [ "${GITHUB_REF_NAME}" = "develop" ]; then 
              echo "Branch is ${GITHUB_REF_NAME}"
-             DERECTORY="io"
+             DIRECTORY="io"
           fi
           if [[ "${GITHUB_REF_NAME} =~ ${BRANCH_REGEX}" ]]; then
              echo "GITHUB_REF_NAME = ${GITHUB_REF_NAME}"
-             DERECTORY="com"
+             DIRICTORY="com"
           fi
       - name: Echo DERECTORY
         run: |
-          echo "DERECTORY IS ${DERECTORY}"
+          echo "DERECTORY IS ${{ get_directory.DIRECTORY }}"
