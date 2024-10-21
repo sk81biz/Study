@@ -16,3 +16,6 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       
+      - name: Check branch
+        run: |
+          echo ${{ steps.extract_branch.outputs.branch }}
