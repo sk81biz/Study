@@ -27,5 +27,7 @@ jobs:
         run: |
           echo ${{ github.ref }}
           echo "${GITHUB_REF_NAME}"
-          if [ "${GITHUB_REF_NAME}" = "develop" ]; then echo "Branch is ${GITHUB_REF_NAME}" fi
+          if [ "${GITHUB_REF_NAME}" = "develop" ]; then 
+             echo "Branch is ${GITHUB_REF_NAME}"
+          fi
           
