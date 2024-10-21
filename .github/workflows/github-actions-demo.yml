@@ -27,4 +27,5 @@ jobs:
         run: |
           echo ${{ github.ref }}
           echo "${GITHUB_REF_NAME}"
-          echo ${{ steps.extract_branch.outputs.branch }}
+          if [ "${GITHUB_REF_NAME}" = "develop" ]; then echo "Branch is ${GITHUB_REF_NAME}" fi
+          
