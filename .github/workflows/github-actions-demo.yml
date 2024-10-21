@@ -1,8 +1,15 @@
 name: GitHub Actions Demo
-on: [push]
+on:
+  push:
+    branches:
+      - 'master'
+      - 'develop'
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [linux/amd64]
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -18,4 +25,9 @@ jobs:
       
       - name: Check branch
         run: |
-          echo ${{ steps.extract_branch.outputs.branch }}
+          echo ${{ github.ref }}
+          echo "${GITHUB_REF_NAME}"
+          if [ "${GITHUB_REF_NAME}" = "develop" ]; then 
+             echo "Branch is ${GITHUB_REF_NAME}"
+          fi
+          
