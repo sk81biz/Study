@@ -42,4 +42,4 @@ jobs:
           fi
       - name: Echo DERECTORY
         run: |
-          echo "DERECTORY IS ${{ get_directory.DIRECTORY }}"
+          echo "DERECTORY IS ${{ steps.get_directory.DIRECTORY }}"
