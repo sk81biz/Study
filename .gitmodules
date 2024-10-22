@@ -4,4 +4,4 @@
 
 [submodule "NodeJS"]
 	path = NodeJS
-	url = https://github.com/sk81biz/StudyNodejs
+	url = https://github.com/sk81biz/StudyNodejs.git
