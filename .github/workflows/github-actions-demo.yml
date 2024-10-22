@@ -27,6 +27,11 @@ jobs:
         run: |
           echo ${{ github.ref }}
           echo "${GITHUB_REF_NAME}"
+<<<<<<< HEAD
+=======
+          PRODUCT_VERSION=$(echo "${{ matrix.branch }}" | sed '/^release\b\|^hotfix\b\|^feature\b/s/release.*\/\|hotfix.*\/\|feature.*\///; s/-git-action$//; s/^v//')
+          echo ${PRODUCT_VERSION}
+>>>>>>> master
           if [ "${GITHUB_REF_NAME}" = "develop" ]; then 
              echo "Branch is ${GITHUB_REF_NAME}"
           fi
