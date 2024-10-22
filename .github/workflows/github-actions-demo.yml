@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - 'master'
-      - 'develop'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,8 +26,6 @@ jobs:
         run: |
           echo ${{ github.ref }}
           echo "${GITHUB_REF_NAME}"
-          PRODUCT_VERSION=$(echo "${{ matrix.branch }}" | sed '/^release\b\|^hotfix\b\|^feature\b/s/release.*\/\|hotfix.*\/\|feature.*\///; s/-git-action$//; s/^v//')
-          echo ${PRODUCT_VERSION}
           if [ "${GITHUB_REF_NAME}" = "develop" ]; then 
              echo "Branch is ${GITHUB_REF_NAME}"
           fi
