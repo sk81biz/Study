@@ -17,4 +17,8 @@ jobs:
           -u "${{ secrets.USERNAME}}:${{secrets.TOKEN}}" \
           "https://api.github.com/repos/sk81biz/docspace-build/dispatches" \
           -H "Accept: application/vnd.github.everest-preview+json" \
-          --data '{"event_type": "server-trigger-action", "client_payload": { "branches": ["'"${GITHUB_REF_NAME}"'"], "targets": "'"${TARGETS}"'" }}'
+          --data '{"event_type": "server-trigger-action", "client_payload": \
+          { "branches": ["'"${GITHUB_REF_NAME}"'"], \
+          "targets": "'"${TARGETS}"'", \
+          "branch": "feature/site-core-service" }}'
+
