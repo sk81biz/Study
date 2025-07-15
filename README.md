@@ -1,3 +1,3 @@
 # Study
-For studying 01
+For studying 02
 
