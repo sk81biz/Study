@@ -5,3 +5,7 @@
 [submodule "NodeJS"]
 	path = NodeJS
 	url = https://github.com/sk81biz/StudyNodejs.git
+	
+[submodule "cPlusPlus"]
+	path = cPlusPlus
+	url = https://github.com/sk81biz/cPlusPlus.git
